@@ -16,6 +16,7 @@ test.describe(() => {
     await login.navigateToOrangeHM();
     await login.fillDataIntoTheField("Admin", "admin123");
     await login.actionClickOnButton();
+    await page.getByLabel('Upload file').setInputFiles(path.join(__dirname, 'myfile.pdf'));
   });
 
   test("Hidden dropdown test", async () => {
@@ -29,7 +30,7 @@ test.describe(() => {
       .locator(".dropdown > div:nth-child(6)")
       .first()
       .click();
-     await page
+    await page
       .locator("div")
       .filter({ hasText: /^Male$/ })
       .first()

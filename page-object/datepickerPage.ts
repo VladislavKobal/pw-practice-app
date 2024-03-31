@@ -13,7 +13,7 @@ export class DatepickerPage {
     await this.page.goto("https://mui.com/x/react-date-pickers/date-picker/");
   }
 
-  async selectDatePickerDesktopVariant(): Promise<void> {
+  async selectDatePickerDesktopVariant() {
     await this.page
       .locator("div")
       .filter({ hasText: /^Basic date picker$/ })

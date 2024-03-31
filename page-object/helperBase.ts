@@ -1,9 +1,6 @@
-import { Page } from "@playwright/test";
-
-export class HelperBase {
-  readonly page: Page;
-
-  constructor(page: Page) {
-    this.page = page;
-  }
+export enum HTTP {
+  baseUrl = " https://reqres.in/api",
+}
+export enum someFilePath{
+  filePath = "upload-files/Gifts.xlsx"
 }
