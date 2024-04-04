@@ -1,8 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
-type data = {
-  email: string;
-  password: string;
-};
+import { data } from "../page-object/helperBase";
 export class ApiPage {
   private baseUrl: string;
 
@@ -25,12 +22,6 @@ export class ApiPage {
     return request.post(`${this.baseUrl}/login`, {
       data: userData,
     });
-  }
-  async insertFakerData(request: APIRequestContext, userData: data) {
-    const response = await request.post(`${this.baseUrl}/login`, {
-      data: userData,
-    });
-    return response;
   }
   async updateUserData(
     request: APIRequestContext,

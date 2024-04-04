@@ -87,6 +87,7 @@ test.describe.parallel("API Testing", () => {
 */
 import { ApiPage } from "./api-modules";
 import { HTTP } from "../page-object/helperBase";
+import { data } from "../page-object/helperBase";
 
 test.describe.parallel("API Testing", () => {
   const apiPage = new ApiPage(HTTP.baseUrl);
@@ -127,8 +128,9 @@ test.describe.parallel("API Testing", () => {
   test("Should failed login", async ({ request }) => {
     const userData = {
       email: "eve.bass@reqres.in",
+      password: "1234",
     };
-    const response = await apiPage.insertFakerData(request, userData);
+    const response = await apiPage.loginWithUserData(request, userData);
     const responseBody = JSON.parse(await response.text());
 
     expect(response.status()).toBe(400);
